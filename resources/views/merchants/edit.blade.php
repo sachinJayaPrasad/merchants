@@ -3,7 +3,7 @@
     <form action="{{ url('update-merchants/'.$merchants->id) }}" method="POST">
     	@csrf
         <div class="col-md-6" style="margin-left:350px;">
-            <h2 class="text-center">ADD MERCHANTS</h2>
+            <h2 class="text-center">EDIT MERCHANTS</h2>
             <hr>
             <div class="row">
 		        <div class="form-group">

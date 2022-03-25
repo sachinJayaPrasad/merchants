@@ -8,22 +8,21 @@
             <div class="row">
 		        <div class="form-group">
 		            <strong>Shop Name:</strong>                   
-		            <input type="hidden" name="id" value="{{ $merchants->id ?? '' }}">
-		            <input type="text" name="name" value="{{ $merchants->name ?? '' }}" class="form-control" placeholder="Shop Name">
+		            <input type="text" name="name" class="form-control" placeholder="Shop Name">
 		        </div>
 		        <div class="form-group">
 		            <strong>Email Id:</strong>
-		            <input type="email" name="email" value="{{ $merchants->email ?? '' }}" class="form-control" placeholder="Email Id">
+		            <input type="email" name="email" class="form-control" placeholder="Email Id">
 		        </div>
 		        <div class="form-group">
 		            <strong>Phone Number:</strong>
-		            <input type="number" name="phone" value="{{ $merchants->phone ?? '' }}" class="form-control" placeholder="Phone Number">
+		            <input type="number" name="phone" class="form-control" placeholder="Phone Number">
 		        </div>
             </div>
             <div class="row mt-2">
 		        <div class="form-group">
 		            <strong>Address:</strong>
-		            <textarea class="form-control" style="height:150px" name="address" placeholder="Address">{{ $merchants->address ?? '' }}</textarea>
+		            <textarea class="form-control" style="height:150px" name="address" placeholder="Address"></textarea>
 		        </div>
 		        <div class="form-group">
 		            <strong>Multiple Locations of Branch:</strong>
