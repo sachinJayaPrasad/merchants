@@ -14,7 +14,6 @@ class MerchantsController extends Controller
     public function show(Request $request)
     {
         $data['merchants'] = Merchants::get();
-        // return view('merchants.index',$data);
         return view('merchants.home',$data);
     }
     public function show_add_page(Request $request)
@@ -27,9 +26,6 @@ class MerchantsController extends Controller
         if ($_id) {
             $data['merchants'] = Merchants::find($_id);
             $data['locations']  = Location::where('merchant_id',$_id)->get();
-            // echo'<pre>';
-            // print_r($data);die;
-            // echo'</pre>';
             return view('merchants.edit',$data);
         } else {
             return response()->json(['status' => true, 'response' => 'Something went wrong']);
@@ -60,7 +56,7 @@ class MerchantsController extends Controller
             $merchants->save();
             // Getting the last inserted id
             $merchant_id = $merchants->id;
-            // Inserting skills to seperate table using the last inserted id
+            // Inserting locations to seperate collection using the last inserted id
             foreach ($request->location as $key=>$loc) {
                 $locations              = new Location();
                 $locations->name        = $loc;
@@ -68,7 +64,6 @@ class MerchantsController extends Controller
                 $locations->save();
             }
             return redirect('/merchants');
-            // return response()->json(['status'=>1,'response'=>$msg]);
         }catch(\Exception $e){
             return response()->json(['status'=>0,'response'=>[$e->getMessage()]]);
         }
@@ -100,7 +95,7 @@ class MerchantsController extends Controller
             $merchant_id = $merchants->id;
             //Deleting entire row in table and adding new
             Location::where('merchant_id',$merchant_id)->delete();
-            // Inserting skills to seperate table using the last inserted id
+            // Inserting location to seperate collection using the last inserted id
             foreach ($request->location as $key=>$loc) {
                 $locations              = new Location();
                 $locations->name        = $loc;
@@ -108,7 +103,6 @@ class MerchantsController extends Controller
                 $locations->save();
             }
             return redirect('/merchants');
-            // return response()->json(['status'=>1,'response'=>$msg]);
         }catch(\Exception $e){
             return response()->json(['status'=>0,'response'=>[$e->getMessage()]]);
         }
